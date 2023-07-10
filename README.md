@@ -101,6 +101,7 @@ Postgres with a username/password, modify the
 config/database.yml file to contain the username/password that you specified
 <ul>
   <li>rake db:create</li>
+  <li>rake db:migrate</li>
   <li>rails server</li>
 </ul>
 
