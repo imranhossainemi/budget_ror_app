@@ -6,16 +6,16 @@
           <%= link_to 'Back Budget Type', budget_types_path, class: "text-decoration-none text-white" %>
         </button>
       </form>
-      <p class="navbar-brand d-flex">Budget Type <% @budget_type.name %> </p>
+      <p class="navbar-brand d-flex">Budget Type <%= @budget_type.name %> </p>
     </div>
   </nav>
-  <h3 class="display-5 border-bottom padding py-5">Total <% @budget_type.name %>Type Affairs <%= "Expenses: $#{@total}" %> </h3>
+  <h3 class="display-5 border-bottom padding py-5">Total <%= @budget_type.name %> Affairs <%= "Expenses: $#{@total}" %> </h3>
     <div class="d-grid gap-3">
       <% @affairs.each do |affair| %>
         <div class="p-2 bg-light border">
           <dl class="row">
             <dt class="col-sm-3 text-uppercase text-decoration-none">
-              <% @budget_type.name %>
+              <%= @budget_type.name %>
             </dt>
             <dd class="col-sm-9">
               <h2 class="border-bottom text-uppercase text-decoration-none">
