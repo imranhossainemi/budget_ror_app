@@ -2,10 +2,9 @@
   <% if current_user.present? %>
     <h3>Welcome</h3>
     <h4><%= current_user.name %></h4>
-    <div class='ml-auto'>
-    <%= link_to 'Budget type', class: 'btn btn-primary mr-2' %>
     <%= button_to "Logout", destroy_user_session_path, method: :delete, class: 'btn btn-outline-danger' %>
-    
+    <div class='budget_view'>
+      <%= link_to 'View Your Budget Plans', budget_types_path,class: 'btn btn-primary mr-2' %>
     </div>
   <% else %>
     <div class="ml-auto ">
