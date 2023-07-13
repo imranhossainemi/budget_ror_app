@@ -1,2 +1,25 @@
-<h1>BudgetTypes#new</h1>
-<p>Find me in app/views/budget_types/new.html.erb</p>
+<section class='container'>
+  <nav class="navbar bg-light">
+    <div class="container-fluid">
+      <form class="d-flex" >
+        <button class="btn btn-outline-success btn-primary me-2" type="button">
+          <%= link_to 'Back Budget Type', budget_types_path, class: "text-decoration-none text-white" %>
+        </button>
+      </form>
+      <p class="navbar-brand d-flex">New Budget Type</p>
+    </div>
+  </nav>
+  <h1 class="display-5 border-bottom padding py-5">Add New Budget Type</h1>
+  <%= form_with model: @budget_type do |form| %>
+
+    <%= form.label :name, class:"form-label mt-3" %>
+    <%= form.text_field :name, class:"form-control" %>
+    
+    
+    <%= form.label :icon, class:"form-label mt-3" %>
+    <%= form.text_field :icon, class:"form-control", id: "category_icon" %>
+      
+    <%= form.submit "Create", class: 'container-md btn btn-success btn-lg mt-3' %>
+
+  <% end %>
+</section>
