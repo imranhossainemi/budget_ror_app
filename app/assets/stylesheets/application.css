@@ -17,3 +17,13 @@ body {
   max-width: 720px;
   margin: 0 auto;
 }
+
+main {
+  height: 100vh;
+}
+
+.budget_view {
+  width: 100%;
+  padding: 50px 0;
+  justify-content: center;
+}
