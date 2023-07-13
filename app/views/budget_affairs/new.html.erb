@@ -3,14 +3,14 @@
     <div class="container-fluid">
       <form class="d-flex" >
         <button class="btn btn-outline-success btn-primary me-2" type="button">
-          <%= link_to 'Back Budget Type', budget_types_path, class: "text-decoration-none text-white" %>
+          <%= link_to 'Back Budget Type', budget_type_path(params[:budget_type_id]) do, class: "text-decoration-none text-white" %>
         </button>
       </form>
-      <p class="navbar-brand d-flex">New Budget Type</p>
+      <p class="navbar-brand d-flex">New Budget Affairs </p>
     </div>
   </nav>
-  <h1 class="display-5 border-bottom padding py-5">Add New Budget Type</h1>
-  <%= form_with model: @payment, url: category_payments_path(params[:category_id]), method: :post, local: true do |form| %>
+  <h1 class="display-5 border-bottom padding py-5">Add New Budget Type of Affairs</h1>
+  <%= form_with model: @budget_affair, url: category_payments_path(params[:category_id]), method: :post, local: true do |form| %>
           <%= form.label :category_id, "Select Category", class:"form-label mt-3" %>
       <%= form.select :category_id, current_user.categories.all.map { |category| [category.name, category.id] }, {}, class: "form-control" %>
     
