@@ -7,6 +7,8 @@ class BudgetTypesController < ApplicationController
 
   def show
     @budget_type = BudgetType.find(params[:id])
+    @total = @budget_type.budget_affairs.sum(:amount)
+    @affairs = @budget_type.budget_affairs.order(created_at: :desc)
   end
 
   def new
