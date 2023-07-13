@@ -3,26 +3,25 @@
     <div class="container-fluid">
       <form class="d-flex" >
         <button class="btn btn-outline-success btn-primary me-2" type="button">
-          <%= link_to 'Back Budget Type', budget_type_path(params[:budget_type_id]) do, class: "text-decoration-none text-white" %>
+          <%= link_to 'Back Budget Type', budget_type_path(params[:budget_type_id]), class: "text-decoration-none text-white" %>
         </button>
       </form>
       <p class="navbar-brand d-flex">New Budget Affairs </p>
     </div>
   </nav>
   <h1 class="display-5 border-bottom padding py-5">Add New Budget Type of Affairs</h1>
-  <%= form_with model: @budget_affair, url: category_payments_path(params[:category_id]), method: :post, local: true do |form| %>
-          <%= form.label :category_id, "Select Category", class:"form-label mt-3" %>
-      <%= form.select :category_id, current_user.categories.all.map { |category| [category.name, category.id] }, {}, class: "form-control" %>
+    <%= form_with model: @budget_affair, url: budget_type_budget_affairs_path(params[:budget_type_id]), method: :post, local: true do |form| %>
+
+      <%= form.label :budget_type_id, "Select Category", class:"form-label mt-3" %>
+      <%= form.select :budget_type_id, current_user.budget_types.all.map { |type| [type.name, type.id] }, {}, class: "form-control" %>
     
- 
       <%= form.label :name, class:"form-label mt-3" %>
       <%= form.text_field :name, class: "form-control" %>
     
       <%= form.label :amount, class:"form-label mt-3" %>
       <%= form.number_field :amount, class: "form-control" %>
     
-      <%= form.submit "Add", class: "btn btn-success btn-lg fixed-bottom container-md" %>
+      <%= form.submit "Add", class: "btn btn-success btn-lg mt-3 container-md" %>
    
-  <% end %>
-
+    <% end %>
 </section>
