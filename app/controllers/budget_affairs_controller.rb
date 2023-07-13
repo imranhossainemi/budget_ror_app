@@ -4,11 +4,11 @@ class BudgetAffairsController < ApplicationController
   end
 
   def create 
-    @affair = BudgetAffair.new(name: affair_params[:name], amount: affair_params[:amount])
+    @affair = BudgetAffair.new(name: budget_affair_params[:name], amount: budget_affair_params[:amount])
 
     @affair.author_id = current_user.id
     if @affair.save
-      TypeAffair.create(affair: @affair, budget_type_id: budget_affair_params[:budget_type_id])
+      TypeAffair.create(budget_affair: @affair, budget_type_id: budget_affair_params[:budget_type_id])
       flash[:success] = 'New Payment Affair succesfully Added'
       redirect_to budget_type_path(budget_affair_params[:budget_type_id])
     else
@@ -20,6 +20,6 @@ class BudgetAffairsController < ApplicationController
   private
 
   def budget_affair_params
-    params.require(:affair).permit(:name, :amount, :budget_type_id)
+    params.require(:budget_affair).permit(:name, :amount, :budget_type_id)
   end
 end
