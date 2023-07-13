@@ -9,34 +9,27 @@
       <p class="navbar-brand d-flex">Budget Type <% @budget_type.name %> </p>
     </div>
   </nav>
-  <h1 class="display-5 border-bottom padding py-5">Budget Type <% @budget_type.name %> Affairs </h1>
-  <%# <%if @budget_types.length.zero? %> %>
-    <p>Add Type of Budget plans</p>
-  <%# <% else %> %>
+  <h3 class="display-5 border-bottom padding py-5">Total <% @budget_type.name %>Type Affairs <%= "Expenses: $#{@total}" %> </h3>
     <div class="d-grid gap-3">
-      <%# <% @budget_types.each do |type| %> %>
+      <% @affairs.each do |affair| %>
         <div class="p-2 bg-light border">
           <dl class="row">
-            <dt class="col-sm-3">
-              <%# <% link_to type.icon, budget_types_path(type.id), class: "text-uppercase text-decoration-none" %> %>
+            <dt class="col-sm-3 text-uppercase text-decoration-none">
+              <% @budget_type.name %>
             </dt>
             <dd class="col-sm-9">
-              <h2 class="border-bottom">
-                <%# <%= link_to type.name, budget_types_path(type.id), class: "text-uppercase text-decoration-none" %> %>
+              <h2 class="border-bottom text-uppercase text-decoration-none">
+                <%=  affair.name %>
               </h2>
-              <p>Total Spent: .</p>
-              <%# <% if current_user.present? && can?(:destroy, type) %> %>
-                <%# <%= button_to "Remove", budget_types_path(type.id), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-danger btn-sm ml-2' %> %>
-              <%# <% end %> %>
+              <p>Total Spent: <%= "$#{affair.amount}" %>.</p>
             </dd>
           </dl>
         </div>
-      <%# <%end%> %>
+      <%end %>
     </div>
-  <%# <% end %> %>
   <div class="card-header d-flex justify-content-between align-items-center">
     <button class=" btn btn-primary btn-blue-col btn-lg mt-5">
-      
+      <%= link_to 'Add New Budget Affair', new_budget_type_budget_affair_path(params[:id]), class: "text-decoration-none text-white" %>
     </button>
   </div>
 </section>
