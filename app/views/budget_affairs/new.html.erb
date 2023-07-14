@@ -1,27 +1,25 @@
 <section class='container'>
   <nav class="navbar bg-light">
     <div class="container-fluid">
-      <form class="d-flex" >
+      <form class="d-flex">
         <button class="btn btn-outline-success btn-primary me-2" type="button">
           <%= link_to 'Back Budget Type', budget_type_path(params[:budget_type_id]), class: "text-decoration-none text-white" %>
         </button>
       </form>
-      <p class="navbar-brand d-flex">New Budget Affairs </p>
+      <p class="navbar-brand d-flex">New Budget Affairs</p>
     </div>
   </nav>
   <h1 class="display-5 border-bottom padding py-5">Add New Budget Type of Affairs</h1>
-    <%= form_with model: @budget_affair, url: budget_type_budget_affairs_path(params[:budget_type_id]), method: :post, local: true do |form| %>
+  <%= form_with model: @affair, url: budget_type_budget_affairs_path(params[:budget_type_id]), method: :post, local: false, scope: :budget_affair do |form| %>
+    <%= form.label :budget_type_id, "Select Category", class: "form-label mt-3" %>
+    <%= form.select :budget_type_id, current_user.budget_types.all.map { |type| [type.name, type.id] }, {}, class: "form-control" %>
 
-      <%= form.label :budget_type_id, "Select Category", class:"form-label mt-3" %>
-      <%= form.select :budget_type_id, current_user.budget_types.all.map { |type| [type.name, type.id] }, {}, class: "form-control" %>
-    
-      <%= form.label :name, class:"form-label mt-3" %>
-      <%= form.text_field :name, class: "form-control" %>
-    
-      <%= form.label :amount, class:"form-label mt-3" %>
-      <%= form.number_field :amount, class: "form-control" %>
-    
-      <%= form.submit "Add", class: "btn btn-success btn-lg mt-3 container-md" %>
-   
-    <% end %>
+    <%= form.label :name, class: "form-label mt-3" %>
+    <%= form.text_field :name, class: "form-control" %>
+
+    <%= form.label :amount, class: "form-label mt-3" %>
+    <%= form.number_field :amount, class: "form-control" %>
+
+    <%= form.submit "Add", class: "btn btn-success btn-lg mt-3 container-md" %>
+  <% end %>
 </section>
