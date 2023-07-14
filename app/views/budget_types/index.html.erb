@@ -12,7 +12,7 @@
             </dt>
             <dd class="col-sm-9">
               <h2 class="border-bottom"><%= link_to type.name, budget_type_path(type.id), class: "text-uppercase text-decoration-none" %></h2>
-              <p>Total Spent: .</p>
+              <p>Total Spent: <%= type.budget_affairs.sum{|bf| bf[:amount]} %></p>
               <% if current_user.present? && can?(:destroy, type) %>
                 <%= button_to "Remove", budget_type_path(type.id), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-danger btn-sm ml-2' %>
               <% end %>
