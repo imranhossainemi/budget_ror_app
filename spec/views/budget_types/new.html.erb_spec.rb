@@ -6,7 +6,7 @@ RSpec.describe 'budget_types/new.html.erb', type: :view do
     before(:each) do
       @user = User.create(name: 'Imran', email: 'imranemi@mail.com', password: 123_456)
       sign_in @user
-      visit ('/budget_types/new')
+      visit('/budget_types/new')
       fill_in 'budget_type[name]', with: 'test group'
       fill_in 'budget_type[icon]', with: 'test icon'
       click_button 'Create'

@@ -7,7 +7,7 @@ RSpec.describe 'budget_types/index.html.erb', type: :view do
     @user = User.create(name: 'imran', email: 'imran@mail.com', password: 123_456)
     sign_in @user
     @category = BudgetType.create(author: @user, name: 'Food', icon: 'Food')
-    @total = @category.budget_affairs.sum{|bf| bf[:amount]}
+    @total = @category.budget_affairs.sum { |bf| bf[:amount] }
 
     assign(:budget_types, [@category]) # Set up the instance variable used in the view
 
