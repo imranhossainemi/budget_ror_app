@@ -95,3 +95,5 @@ end
 group :development, :test do
   gem 'capybara'
 end
+
+gem "jsbundling-rails", "~> 1.1"
