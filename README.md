@@ -32,7 +32,7 @@ The **[Budget app]** is a mobile web application where you can manage your budge
 
 - Live Demo: [live](https://budget-app-imran.onrender.com/)
 
-- Video Deco: [Video](https://budget-app-imran.onrender.com/)
+- Video Deco: [Video](https://drive.google.com/file/d/1pz45PM1Ij-DS7fZvLe9x8xquqIV1BcCj/view?usp=sharing)
 
 ## 🛠 Built With <a name="built-with"></a>
 
