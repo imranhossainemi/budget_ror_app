@@ -1,6 +1,6 @@
 <section class='text-center'>
+  <h3>Welcome to Budget app</h3>
   <% if current_user.present? %>
-    <h3>Welcome</h3>
     <h4><%= current_user.name %></h4>
     <%= button_to "Logout", destroy_user_session_path, method: :delete, class: 'btn btn-outline-danger' %>
     <div class='budget_view'>
