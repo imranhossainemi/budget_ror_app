@@ -16,11 +16,13 @@
               <a class="nav-link active" aria-current="page" href="/">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Budget types</a>
+              <%= link_to 'Budget Types', budget_types_path, class: 'nav-link' %>
             </li>
+            <% if current_user.present? %>
             <li class="nav-item">
-              <a class="nav-link" href="#">Budget Affairs</a>
+              <%= button_to "Logout", destroy_user_session_path, method: :delete, class: 'btn btn-outline-danger' %>
             </li>
+            <% end %>
         </div>
       </div>
     </div>

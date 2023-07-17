@@ -1,1 +1,12 @@
-@import 'bootstrap';
+@import 'bootstrap/scss/bootstrap';
+@import 'bootstrap-icons/font/bootstrap-icons';
+
+body {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.budget-view {
+  width: 100%;
+  padding: 50px 0;
+}

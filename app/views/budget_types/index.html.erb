@@ -1,0 +1,30 @@
+<section class='container'>
+  <h1 class="display-1 border-bottom padding pb-5">Budget Types</h1>
+  <%if @budget_types.length.zero? %>
+    <p>Add Type of Budget plans</p>
+  <% else %>
+    <div class="d-grid gap-3">
+      <% @budget_types.each do |type| %>
+        <div class="p-2 bg-light border">
+          <dl class="row">
+            <dt class="col-sm-3">
+              <%= link_to type.icon, budget_type_path(type.id), class: "text-uppercase text-decoration-none" %>
+            </dt>
+            <dd class="col-sm-9">
+              <h2 class="border-bottom"><%= link_to type.name, budget_type_path(type.id), class: "text-uppercase text-decoration-none" %></h2>
+              <p>Total Spent: <%= type.budget_affairs.sum{|bf| bf[:amount]} %></p>
+              <% if current_user.present? && can?(:destroy, type) %>
+                <%= button_to "Remove", budget_type_path(type.id), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-danger btn-sm ml-2' %>
+              <% end %>
+            </dd>
+          </dl>
+        </div>
+      <%end%>
+    </div>
+  <% end %>
+  <div class="card-header d-flex justify-content-between align-items-center">
+    <button class=" btn btn-primary btn-blue-col btn-lg mt-5">
+      <%= link_to 'Add Budget Type', new_budget_type_path, class: "text-decoration-none text-white" %>
+    </button>
+  </div>
+</section>
